@@ -1,0 +1,17 @@
+*.o
+*.gch
+*.a
+*.so
+*.out
+*.d
+*.log
+.vscode
+__pycache__
+unit_tests*
+include/my.h
+*vgcore*
+*.test
+*tmp*
+cjson
+*.dSYM
+.DS_Store
