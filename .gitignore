@@ -12,6 +12,6 @@ include/my.h
 *vgcore*
 *.test
 *tmp*
-cjson
+cjson.bin
 *.dSYM
 .DS_Store
