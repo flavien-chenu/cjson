@@ -16,8 +16,9 @@
 static bool prevent_bad_syntax(char *json, int *i)
 {
     internal_cjson_skip_blank(json, i);
-    if (json[*i] != '{') {
-        internal_cjson_error("unable to find first '{' of JSON object", NULL);
+    if (json[*i] != '{' && json[*i] != '[') {
+        internal_cjson_error("unable to find first '{' or '[' of JSON file",
+        NULL);
         return true;
     }
     return false;

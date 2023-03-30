@@ -30,7 +30,7 @@ cjson_value_t internal_cjson_parse_string(char *json, int *i, bool *error)
 
     if (*error)
         return CJSON(value);
-    value = internal_cjson_strndup(json, len);
+    value = internal_cjson_strndup(json + *i, len);
     if (!value)
         internal_cjson_error("unable to alloc string value", error);
     *i += len + (!(*error) ? 1 : 0);

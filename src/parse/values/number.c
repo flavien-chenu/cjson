@@ -19,7 +19,7 @@ int *i, bool *error)
     internal_cjson_skip_blank(json, i);
     if (json[*i] != '-' && !CJSON_INTERNAL_ISNUM(json[*i]))
         return internal_cjson_error("invalid number found", error);
-    if (json[*i] != '-') {
+    if (json[*i] == '-') {
         value->negative = true;
         *i += 1;
     }
@@ -63,7 +63,7 @@ bool *error)
 
     if (!(*error)) {
         number += (float) value->whole;
-        number += (float) (value->decimal / value->divider);
+        number += ((float) value->decimal) / ((float) value->divider);
         if (value->negative)
             number *= -1;
     }

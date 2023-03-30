@@ -7,12 +7,33 @@
 
 
 _SRC =			main.c \
-				key.c \
-				separator.c \
-				value.c \
 				\
+				parse/values/array.c \
+				parse/values/bool.c \
+				parse/values/null.c \
+				parse/values/number.c \
+				parse/values/object.c \
+				parse/values/string.c \
 				parse/file.c \
+				parse/key.c \
 				parse/parse.c \
+				parse/separator.c \
+				parse/value.c \
+				\
+				stringify/size/array.c \
+				stringify/size/bool.c \
+				stringify/size/null.c \
+				stringify/size/number.c \
+				stringify/size/object.c \
+				stringify/size/size.c \
+				stringify/size/string.c \
+				stringify/array.c \
+				stringify/bool.c \
+				stringify/null.c \
+				stringify/number.c \
+				stringify/object.c \
+				stringify/string.c \
+				stringify/stringify.c \
 				\
 				types/array/append.c \
 				types/array/array.c \
@@ -31,13 +52,6 @@ _SRC =			main.c \
 				utils/strdup.c \
 				utils/strlen.c \
 				utils/strncpy.c \
-				\
-				values/array.c \
-				values/bool.c \
-				values/null.c \
-				values/number.c \
-				values/object.c \
-				values/string.c \
 
 SRCDIR = 		src/
 
@@ -70,6 +84,10 @@ fclean: 		clean
 				@echo [$(NAME)] "\t-> cleaning : binary"
 
 re: 			fclean all
+
+docker:
+				@docker run -it -v $(shell pwd):/project -w /project \
+				epitechcontent/epitest-docker bash
 
 style:			fclean
 				coding-style . .

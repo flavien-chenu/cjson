@@ -21,6 +21,11 @@ typedef struct s_internal_cjson_number {
     long divider;
 } internal_cjson_number_t;
 
+typedef struct s_internal_cjson_string {
+    char *content;
+    size_t i;
+} internal_cjson_string_t;
+
 typedef struct s_cjson_array {
     cjson_t *first;
     cjson_t *last;
@@ -58,14 +63,10 @@ typedef struct s_cjson {
     cjson_t *next;
 } cjson_t;
 
-typedef cjson_value_t (*cjson_getter_value)(char *json, int *i);
-typedef char *(*cjson_getter_key)(char *json, int *i);
-
     #define CJSON_IS_OBJECT(o) (o->type == CJSON_OBJECT_T)
     #define CJSON_IS_ARRAY(o) (o->type == CJSON_ARRAY_T)
     #define CJSON_IS_STRING(o) (o->type == CJSON_STRING_T)
-    #define CJSON_IS_INT(o) (o->type == CJSON_INT_T)
-    #define CJSON_IS_FLOAT(o) (o->type == CJSON_FLOAT_T)
+    #define CJSON_IS_NUMBER(o) (o->type == CJSON_NUMBER_T)
     #define CJSON_IS_BOOL(o) (o->type == CJSON_BOOL_T)
     #define CJSON_IS_NULL(o) (o->type == CJSON_NULL_T)
     #define CJSON_IS_PRIMARY(o) (!CJSON_IS_ARRAY(o) && !CJSON_IS_OBJECT(o))

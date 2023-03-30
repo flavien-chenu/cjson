@@ -9,6 +9,8 @@
     #define CJSON_H_
     #define CJSON_ARRAY_KEY "__cjson_array_element__"
     #define CJSON_ROOT "__cjson_root__"
+    #define CJSON_TAB_SIZE 4
+    #define CJSON_ROUNDING_LIMIT 6
     #define CJSON(v) ((cjson_value_t) v)
 
     #include "types.h"
@@ -99,5 +101,16 @@ cjson_t *cjson_parse(char *json);
  * @return Parsed JSON object or NULL if failed
  */
 cjson_t *cjson_parse_file(char *filepath);
+
+//==================================================
+// STRINGIFIER
+//==================================================
+
+/**
+ * @brief Convert to stirng given CJSON object
+ * @param cjson CSJON object to convert
+ * @return JSON string
+ */
+char *cjson_stringify(cjson_t *cjson);
 
 #endif /* !CJSON_H_ */
