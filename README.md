@@ -1,5 +1,5 @@
-# 🔡 C JSON Parser
-Epitech C JSON Parser tool
+# 🔡 C JSON
+Epitech C JSON tool
 
 # Usage
 
