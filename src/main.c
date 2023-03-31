@@ -19,8 +19,9 @@ int main(int ac, char **av)
         return 1;
     }
     parsed = cjson_parse_file(av[1]);
-    string = cjson_stringify(parsed);
-    printf("%s", string);
+    cjson_array_t *array = cjson_get_array_unsafe(parsed);
+    cjson_t *element = cjson_array_get(array, 3);
+    cjson_display(element);
     cjson_free(parsed);
     (void) parsed;
     free(string);

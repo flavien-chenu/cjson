@@ -5,8 +5,8 @@
 ** append
 */
 
+#include <stdlib.h>
 #include "cjson.h"
-#include "internal.h"
 
 void cjson_array_append(cjson_array_t *array, cjson_t *element)
 {

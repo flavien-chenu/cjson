@@ -5,8 +5,9 @@
 ** array
 */
 
-#include "cjson.h"
-#include "internal.h"
+#include "types.h"
+#include "internal/utils.h"
+#include "internal/stringify.h"
 
 static bool get_elements_size(cjson_t *cjson, size_t *size,
 int depth, bool *error)

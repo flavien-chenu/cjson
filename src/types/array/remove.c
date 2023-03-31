@@ -5,8 +5,8 @@
 ** remove
 */
 
+#include <stdlib.h>
 #include "cjson.h"
-#include "internal.h"
 
 static void element_unlink(cjson_t *element)
 {

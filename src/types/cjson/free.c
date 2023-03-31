@@ -6,8 +6,6 @@
 */
 
 #include <stdlib.h>
-#include "types.h"
-#include "internal.h"
 #include "cjson.h"
 
 static void cjson_free_object(cjson_t *cjson)
@@ -22,8 +20,10 @@ static void cjson_free_object(cjson_t *cjson)
     }
 }
 
-static void cjson_free_value(cjson_t *cjson)
+void cjson_free_value(cjson_t *cjson)
 {
+    if (!cjson)
+        return;
     switch (cjson->type) {
         case CJSON_STRING_T:
             free(cjson->value.v_string);
@@ -37,6 +37,7 @@ static void cjson_free_value(cjson_t *cjson)
         default:
             break;
     }
+    cjson->type = CJSON_NULL_T;
 }
 
 void cjson_free(cjson_t *cjson)

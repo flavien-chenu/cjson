@@ -6,9 +6,10 @@
 */
 
 #include <stdbool.h>
-#include "types.h"
 #include "cjson.h"
-#include "internal.h"
+#include "internal/error.h"
+#include "internal/utils.h"
+#include "internal/parsing.h"
 
 static bool get_true(char *json, int *i, bool *error)
 {

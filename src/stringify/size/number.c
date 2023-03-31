@@ -5,8 +5,8 @@
 ** null
 */
 
-#include "cjson.h"
-#include "internal.h"
+#include "types.h"
+#include "internal/defs.h"
 
 static void get_whole_part_size(long whole, size_t *size)
 {

@@ -5,8 +5,10 @@
 ** object
 */
 
-#include "cjson.h"
-#include "internal.h"
+#include <stdlib.h>
+#include "types.h"
+#include "internal/utils.h"
+#include "internal/stringify.h"
 
 static void get_props_sizes(cjson_t *cjson, size_t *size,
 int depth, bool *error)

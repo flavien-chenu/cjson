@@ -6,7 +6,7 @@
 */
 
 #include <stdlib.h>
-#include "internal.h"
+#include "internal/utils.h"
 
 char *internal_cjson_strdup(const char *s)
 {

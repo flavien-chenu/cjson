@@ -5,9 +5,9 @@
 ** null
 */
 
-#include "cjson.h"
-#include "internal.h"
-
+#include "types.h"
+#include "internal/defs.h"
+#include "internal/stringify.h"
 
 static void stringify_whole_part(internal_cjson_string_t *json, long whole)
 {

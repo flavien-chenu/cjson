@@ -5,7 +5,7 @@
 ** skip
 */
 
-#include "internal.h"
+#include "internal/utils.h"
 
 void internal_cjson_skip_blank(char *json, int *i)
 {

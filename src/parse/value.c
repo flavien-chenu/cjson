@@ -6,7 +6,9 @@
 */
 
 #include <stdio.h>
-#include "internal.h"
+#include "internal/error.h"
+#include "internal/utils.h"
+#include "internal/parsing.h"
 
 static void get_object_array(cjson_t *cjson, char *json,
 int *i, bool *error)

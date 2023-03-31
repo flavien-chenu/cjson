@@ -10,8 +10,8 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include "cjson.h"
-#include "types.h"
-#include "internal.h"
+#include "internal/error.h"
+#include "internal/parsing.h"
 
 static bool open_file(char *filepath, cjson_file_t *file)
 {

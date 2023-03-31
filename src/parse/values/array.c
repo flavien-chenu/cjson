@@ -5,14 +5,12 @@
 ** object
 */
 
-#include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <sys/stat.h>
-#include "types.h"
 #include "cjson.h"
-#include "internal.h"
+#include "internal/defs.h"
+#include "internal/error.h"
+#include "internal/utils.h"
+#include "internal/parsing.h"
 
 static cjson_t *parse_element(char *json, int *i, bool *error)
 {

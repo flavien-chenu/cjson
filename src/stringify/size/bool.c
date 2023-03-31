@@ -5,8 +5,8 @@
 ** bool
 */
 
-#include "cjson.h"
-#include "internal.h"
+#include <stdbool.h>
+#include "types.h"
 
 void internal_cjson_string_size_bool(cjson_t *cjson, size_t *size)
 {

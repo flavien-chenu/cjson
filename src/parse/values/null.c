@@ -6,9 +6,9 @@
 */
 
 #include <stdbool.h>
-#include "types.h"
 #include "cjson.h"
-#include "internal.h"
+#include "internal/error.h"
+#include "internal/utils.h"
 
 cjson_value_t internal_cjson_parse_null(char *json, int *i, bool *error)
 {

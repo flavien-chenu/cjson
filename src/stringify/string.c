@@ -5,8 +5,9 @@
 ** null
 */
 
-#include "cjson.h"
-#include "internal.h"
+#include "types.h"
+#include "internal/utils.h"
+#include "internal/stringify.h"
 
 void internal_cjson_stringify_string(cjson_t *cjson,
 internal_cjson_string_t *json)

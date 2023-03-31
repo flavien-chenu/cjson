@@ -5,10 +5,12 @@
 ** to_string
 */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "cjson.h"
-#include "internal.h"
+#include "internal/defs.h"
+#include "internal/utils.h"
+#include "internal/error.h"
+#include "internal/stringify.h"
 
 void internal_cjson_stringify_add_tabs(internal_cjson_string_t *json,
 int depth)
@@ -64,6 +66,8 @@ char *cjson_stringify(cjson_t *cjson)
     size_t size = 0;
     bool error = false;
 
+    if (!cjson)
+        return NULL;
     if (!CJSON_IS_OBJECT(cjson) && !CJSON_IS_ARRAY(cjson)) {
         internal_cjson_error("unable to export non object or array to string",
         NULL);

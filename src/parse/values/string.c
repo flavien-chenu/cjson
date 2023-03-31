@@ -6,9 +6,10 @@
 */
 
 #include <stdbool.h>
-#include "types.h"
-#include "internal.h"
+#include <stdlib.h>
 #include "cjson.h"
+#include "internal/error.h"
+#include "internal/utils.h"
 
 static unsigned int get_len(char *json, int i, bool *error)
 {

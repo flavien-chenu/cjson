@@ -5,7 +5,7 @@
 ** strcmp
 */
 
-#include "internal.h"
+#include "internal/utils.h"
 
 static char get_i_char(char const *str, int i, int len)
 {

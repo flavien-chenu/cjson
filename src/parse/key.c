@@ -5,7 +5,10 @@
 ** key
 */
 
-#include "internal.h"
+#include <stdlib.h>
+#include "internal/error.h"
+#include "internal/utils.h"
+#include "internal/parsing.h"
 
 static int get_key_len(char *json, int i, bool *error)
 {

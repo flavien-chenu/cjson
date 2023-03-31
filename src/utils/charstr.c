@@ -6,7 +6,6 @@
 */
 
 #include <stdbool.h>
-#include "internal.h"
 
 bool internal_cjson_char_in_str(char c, char *chars)
 {

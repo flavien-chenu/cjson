@@ -6,7 +6,8 @@
 */
 
 #include <unistd.h>
-#include "internal.h"
+#include "cjson.h"
+#include "internal/utils.h"
 
 void internal_cjson_error(const char *message, bool *error)
 {

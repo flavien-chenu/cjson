@@ -5,8 +5,8 @@
 ** null
 */
 
-#include "cjson.h"
-#include "internal.h"
+#include <stdlib.h>
+#include "internal/utils.h"
 
 void internal_cjson_string_size_string(cjson_t *cjson, size_t *size)
 {

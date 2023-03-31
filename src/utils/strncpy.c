@@ -5,8 +5,6 @@
 ** strncpy
 */
 
-#include "internal.h"
-
 void internal_cjson_strncpy(char *dest, char const *src, int n)
 {
     int i = 0;

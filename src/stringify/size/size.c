@@ -6,7 +6,9 @@
 */
 
 #include "cjson.h"
-#include "internal.h"
+#include "internal/defs.h"
+#include "internal/error.h"
+#include "internal/stringify.h"
 
 void internal_cjson_string_size_add_tabs(int depth, size_t *size)
 {

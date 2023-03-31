@@ -5,7 +5,7 @@
 ** separator
 */
 
-#include "internal.h"
+#include <stdbool.h>
 
 void internal_cjson_check_separator(char *json, int *i, bool *error)
 {

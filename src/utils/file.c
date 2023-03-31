@@ -9,8 +9,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/stat.h>
-#include "types.h"
-#include "internal.h"
 
 off_t internal_cjson_file_get_size(char *filepath)
 {

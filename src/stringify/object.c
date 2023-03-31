@@ -5,9 +5,9 @@
 ** object
 */
 
-#include <stdio.h>
-#include "cjson.h"
-#include "internal.h"
+#include "types.h"
+#include "internal/utils.h"
+#include "internal/stringify.h"
 
 static void stringify_props(cjson_t *cjson,
 internal_cjson_string_t *json, int depth, bool *error)

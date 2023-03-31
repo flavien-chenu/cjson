@@ -8,6 +8,19 @@
 
 _SRC =			main.c \
 				\
+				display/array.c \
+				display/bool.c \
+				display/display.c \
+				display/null.c \
+				display/number.c \
+				display/object.c \
+				display/string.c \
+				\
+				getters/array.c \
+				getters/bool.c \
+				getters/number.c \
+				getters/string.c \
+				\
 				parse/values/array.c \
 				parse/values/bool.c \
 				parse/values/null.c \
@@ -39,6 +52,19 @@ _SRC =			main.c \
 				types/array/array.c \
 				types/array/get.c \
 				types/array/remove.c \
+				types/array/from_bool.c \
+				types/array/from_float.c \
+				types/array/from_int.c \
+				types/array/from_string.c \
+				types/array/to_bool.c \
+				types/array/to_float.c \
+				types/array/to_int.c \
+				types/array/to_string.c \
+				\
+				types/cjson/props/array.c \
+				types/cjson/props/bool.c \
+				types/cjson/props/number.c \
+				types/cjson/props/string.c \
 				types/cjson/free.c \
 				types/cjson/new.c \
 				types/cjson/prop.c \
@@ -59,35 +85,40 @@ SRC =			$(addprefix $(SRCDIR), $(_SRC))
 OBJ = 			$(SRC:.c=.o)
 
 INC =			-I ./include
-LIBS =
 
-CFLAGS 	=		-W -Wall -Wextra -Werror -g
+NAME = cjson
 
-NAME =			cjson.bin
+COLOUR_GREEN=\033[0;32m
 
-all: 			$(NAME)
+COLOUR_ORANGE=\033[0;33m
 
-$(NAME):		$(OBJ)
-				@echo [$(NAME)] "\t-> building : binary"
-				@gcc -o $(NAME) $(OBJ) $(INC) $(LIBS) $(CFLAGS)
+COLOUR_RED=\033[0;31m
+
+COLOUR_BLUE=\033[0;34m
+
+BOLD_BLUE=\033[1;34m
+
+COLOUR_GREY=\033[0;30m
+
+COLOUR_END=\033[0m
+
+all: 		$(NAME)
+
+$(NAME):	$(OBJ)
+			@ar rc lib$(NAME).a $(OBJ)
+			@cp lib$(NAME).a ../
 
 %.o: %.c
-				@echo [$(NAME)] "\t-> building : objects"
-				@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+			@echo "$(COLOUR_BLUE)📦 Compiling lib$(NAME) - $(BOLD_BLUE)\
+[$<]$(COLOUR_END)"
+			@gcc -c $< -o $@ $(INC)
 
 clean:
-				@rm -f $(OBJ)
-				@echo [$(NAME)] "\t-> cleaning : objects"
+			@echo "$(COLOUR_RED)🧽 Cleaning lib$(NAME) objects...$(COLOUR_END)"
+			@rm -f $(OBJ)
 
-fclean: 		clean
-				@rm -f $(NAME)
-				@echo [$(NAME)] "\t-> cleaning : binary"
+fclean: 	clean
+			@echo "$(COLOUR_RED)🧽 Cleaning lib$(NAME) $(NAME).a...$(COLOUR_END)"
+			@rm -f lib$(NAME).a
 
-re: 			fclean all
-
-docker:
-				@docker run -it -v $(shell pwd):/project -w /project \
-				epitechcontent/epitest-docker bash
-
-style:			fclean
-				coding-style . .
+re: 		fclean all

@@ -6,7 +6,7 @@
 */
 
 #include "cjson.h"
-#include "internal.h"
+#include "internal/stringify.h"
 
 static bool stringify_elements(cjson_t *cjson,
 internal_cjson_string_t *json, int depth, bool *error)

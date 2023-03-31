@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 #include "types.h"
-#include "internal.h"
+#include "internal/utils.h"
 
 cjson_t *cjson_new(char *key)
 {

@@ -6,12 +6,10 @@
 */
 
 #include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <sys/stat.h>
-#include "types.h"
-#include "internal.h"
 #include "cjson.h"
+#include "internal/error.h"
+#include "internal/utils.h"
+#include "internal/parsing.h"
 
 static void check_sign(internal_cjson_number_t *value, char *json,
 int *i, bool *error)

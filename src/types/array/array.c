@@ -7,7 +7,6 @@
 
 #include <stdlib.h>
 #include "cjson.h"
-#include "internal.h"
 
 cjson_array_t *cjson_array_new(void)
 {
