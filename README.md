@@ -3,7 +3,7 @@ Epitech C JSON tool
 
 # Usage
 
-## Prequisties
+## Prerequisties
 In order to use CJSON functions you have to include `cjson.h` header file.
 
 ```c
