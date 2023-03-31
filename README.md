@@ -112,7 +112,7 @@ cjson_set_prop_key(price, "MyNewPriceKey"); //Now price is : "MyNewPriceKey" : 1
 cjson_set_prop_value(price, CJSON(34.7)); //Now price is : "MyNewPriceKey" : 34.7
 
 //Or you can do as follwing
-cjson_set_prop_value(price, CJSON(false)); //Now price is : "MyNewPriceKey" : false
+cjson_set_prop_value(price, CJSON(false), CJSON_BOOL_T); //Now price is : "MyNewPriceKey" : false
 ```
 
 ## Get array of items in primitive C types
