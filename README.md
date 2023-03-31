@@ -2,6 +2,19 @@
 Epitech C JSON Parser tool
 
 # Usage
+
+## Prequisties
+In order to use CJSON functions you have to include `cjson.h` header file.
+
+```c
+#include "cjson.h"
+
+int main(void)
+{
+    return 1;
+}
+```
+
 ## Load JSON file to CJSON type
 ```c
 cjson_t *cjson = cjson_parse_file(filename); // Parse given file
