@@ -21,6 +21,8 @@ _SRC =			main.c \
 				getters/number.c \
 				getters/string.c \
 				\
+				parse/values/string/dup.c \
+				parse/values/string/len.c \
 				parse/values/array.c \
 				parse/values/bool.c \
 				parse/values/null.c \
@@ -108,6 +110,11 @@ $(NAME):	$(OBJ)
 			@ar rc lib$(NAME).a $(OBJ)
 			@cp lib$(NAME).a ../
 
+bin:		$(OBJ)
+			@gcc -o $(NAME) $(OBJ) $(LDFLAGS) $(INC)
+
+bin-re:		fclean bin
+
 %.o: %.c
 			@echo "$(COLOUR_BLUE)📦 Compiling lib$(NAME) - $(BOLD_BLUE)\
 [$<]$(COLOUR_END)"
@@ -119,6 +126,6 @@ clean:
 
 fclean: 	clean
 			@echo "$(COLOUR_RED)🧽 Cleaning lib$(NAME) $(NAME).a...$(COLOUR_END)"
-			@rm -f lib$(NAME).a
+			@rm -f lib$(NAME).a $(NAME)
 
 re: 		fclean all

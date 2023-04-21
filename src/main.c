@@ -19,11 +19,20 @@ int main(int ac, char **av)
         return 1;
     }
     parsed = cjson_parse_file(av[1]);
-    cjson_array_t *array = cjson_get_array_unsafe(parsed);
-    cjson_t *element = cjson_array_get(array, 3);
-    cjson_display(element);
+    char *text1 = cjson_get_prop_string_unsafe(parsed, "text1");
+    char *text2 = cjson_get_prop_string_unsafe(parsed, "text2");
+    char *text3 = cjson_get_prop_string_unsafe(parsed, "text3");
+    char *text6 = cjson_get_prop_string_unsafe(parsed, "text6");
+    char *text7 = cjson_get_prop_string_unsafe(parsed, "text7");
+    char *text8 = cjson_get_prop_string_unsafe(parsed, "text8");
+    printf("'%s'\n", text1);
+    printf("'%s'\n", text2);
+    printf("'%s'\n", text3);
+    printf("'%s'\n", text6);
+    printf("'%s'\n", text7);
+    printf("'%s'\n", text8);
+
     cjson_free(parsed);
-    (void) parsed;
     free(string);
     return 0;
 }

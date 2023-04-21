@@ -8,13 +8,13 @@
 #ifndef CJSON_OBJECT_H_
     #define CJSON_OBJECT_H_
 
-    #include "types.h"
+    #include "../types.h"
 
 /**
- * @brief Create a new CJSON element
+ * @brief Create a new CJSON element, object as default
  * @param key Object key
  * @return Created element
- * @note By default, type of created element is null
+ * @note You can change type of element with cjson_set_value
  */
 cjson_t *cjson_new(char *key);
 
@@ -124,11 +124,10 @@ bool cjson_get_prop_bool(cjson_t *object, char *key, bool *value);
  * @param key Key of property
  * @return Extracted value
  * @warning Doesn't use this function if your not sure that CJSON element
- * type is number and property exsits. This function could return 0
- * if element is not a number or not found. In this case you will not
- * be able to do the difference between value 0 contained in given CJSON
+ * type is boolean and property exsits. This function could return false
+ * if element is not a boolean or not found. In this case you will not
+ * be able to do the difference between value false contained in given CJSON
  * element or if is an error. To prevent error use cjson_get_bool instead.
- * @note If number is bool, it will be truncate to bool.
  */
 bool cjson_get_prop_bool_unsafe(cjson_t *object, char *key);
 
@@ -147,11 +146,10 @@ bool cjson_get_prop_string(cjson_t *object, char *key, char **value);
  * @param key Key of property
  * @return Extracted value
  * @warning Doesn't use this function if your not sure that CJSON element
- * type is number and property exsits. This function could return 0
- * if element is not a number or not found. In this case you will not
- * be able to do the difference between value 0 contained in given CJSON
+ * type is string and property exsits. This function could return NULL
+ * if element is not a string or not found. In this case you will not
+ * be able to do the difference between value NULL contained in given CJSON
  * element or if is an error. To prevent error use cjson_get_string instead.
- * @note If number is string, it will be truncate to string.
  */
 char *cjson_get_prop_string_unsafe(cjson_t *object, char *key);
 
@@ -178,21 +176,21 @@ cjson_type_t type);
 void cjson_unset_prop(cjson_t *object, char *key);
 
 /**
- * @brief Set key of given property
- * @param property Property CJSON element of which set key
+ * @brief Set key of given CJSON element
+ * @param cjson CJSON element of which set key
  * @param key Key to set to given element
  * @return 0 on success and -1 on failed
  */
-int cjson_set_prop_key(cjson_t *property, char *key);
+int cjson_set_key(cjson_t *cjson, char *key);
 
 /**
- * @brief Set value of given property
- * @param property Property CJSON element of which set value
+ * @brief Set value of given CJSON element
+ * @param cjson CJSON element of which set value
  * @param value Value to set to given element
  * @param type Type of given value
  * @return 0 on success and -1 on failed
  */
-int cjson_set_prop_value(cjson_t *property, cjson_value_t value,
+int cjson_set_value(cjson_t *cjson, cjson_value_t value,
 cjson_type_t type);
 
 #endif /* !CJSON_OBJECT_H_ */
