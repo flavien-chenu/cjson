@@ -16,6 +16,8 @@ _SRC =			main.c \
 				display/object.c \
 				display/string.c \
 				\
+				export/export.c \
+				\
 				getters/array.c \
 				getters/bool.c \
 				getters/number.c \

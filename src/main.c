@@ -19,19 +19,19 @@ int main(int ac, char **av)
         return 1;
     }
     parsed = cjson_parse_file(av[1]);
-    char *text1 = cjson_get_prop_string_unsafe(parsed, "text1");
-    char *text2 = cjson_get_prop_string_unsafe(parsed, "text2");
-    char *text3 = cjson_get_prop_string_unsafe(parsed, "text3");
-    char *text6 = cjson_get_prop_string_unsafe(parsed, "text6");
-    char *text7 = cjson_get_prop_string_unsafe(parsed, "text7");
-    char *text8 = cjson_get_prop_string_unsafe(parsed, "text8");
-    printf("'%s'\n", text1);
-    printf("'%s'\n", text2);
-    printf("'%s'\n", text3);
-    printf("'%s'\n", text6);
-    printf("'%s'\n", text7);
-    printf("'%s'\n", text8);
-
+    // char *text1 = cjson_get_prop_string_unsafe(parsed, "text1");
+    // char *text2 = cjson_get_prop_string_unsafe(parsed, "text2");
+    // char *text3 = cjson_get_prop_string_unsafe(parsed, "text3");
+    // char *text6 = cjson_get_prop_string_unsafe(parsed, "text6");
+    // char *text7 = cjson_get_prop_string_unsafe(parsed, "text7");
+    // char *text8 = cjson_get_prop_string_unsafe(parsed, "text8");
+    // printf("'%s'\n", text1);
+    // printf("'%s'\n", text2);
+    // printf("'%s'\n", text3);
+    // printf("'%s'\n", text6);
+    // printf("'%s'\n", text7);
+    // printf("'%s'\n", text8);
+    cjson_export_to_file(parsed, "monfichier.json");
     cjson_free(parsed);
     free(string);
     return 0;
