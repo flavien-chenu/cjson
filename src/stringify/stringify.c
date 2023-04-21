@@ -63,7 +63,7 @@ bool *error)
 
 char *cjson_stringify(cjson_t *cjson, size_t *size)
 {
-    size_t _size = 0;
+    size_t internal_size = 0;
     bool error = false;
 
     if (size)
@@ -75,9 +75,9 @@ char *cjson_stringify(cjson_t *cjson, size_t *size)
         NULL);
         return NULL;
     }
-    internal_cjson_string_size(cjson, &_size, 0, &error);
+    internal_cjson_string_size(cjson, &internal_size, 0, &error);
     if (error)
         return NULL;
-    *size = _size;
-    return get_final_string(cjson, _size, &error);
+    *size = internal_size;
+    return get_final_string(cjson, internal_size, &error);
 }
