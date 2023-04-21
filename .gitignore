@@ -12,7 +12,7 @@ include/my.h
 *vgcore*
 *.test
 *tmp*
-cjson.bin
+cjson
 *.dSYM
 .DS_Store
 *.json

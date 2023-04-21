@@ -23,13 +23,22 @@ CJSON_INTERNAL_EOFIELD(c) )
     #define CJSON_INTERNAL_IS_SPECIAL(c) (c == '\\' || c == '"' || c == '/' \
 || c == '\b' || c == '\f' || c == '\n' || c == '\r' || c == '\t')
     #define CJSON_INTERNAL_IS_ESC_SPECIAL(c) (c == '\\' || c == '"' \
-|| c == '/' \ || c == 'b' || c == 'f' || c == 'n' || c == 'r' || c == 't')
+|| c == '/' || c == 'b' || c == 'f' || c == 'n' || c == 'r' || c == 't')
+
 /**
  * @brief Calculate the length of a string
  * @param s String of which get length
  * @return Number of bytes in the string pointed to by s
  */
 size_t internal_cjson_strlen(const char *s);
+
+/**
+ * @brief Calculate the length of a string and adding backslashes
+ * on special chars in length
+ * @param s String of which get length
+ * @return Number of bytes in the string pointed to by s
+ */
+size_t internal_cjson_strlen_with_specials(const char *s);
 
 /**
  * @brief Duplicate given string
