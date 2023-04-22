@@ -36,11 +36,14 @@ cjson_type_t type)
     cjson_unset_prop(object, key);
     if (!set_prop_value(&prop, key, value, type) || !prop)
         return -1;
-    prop->next = object->value.v_object;
-    if (prop->next)
-        prop->next->prev = prop;
-    prop->prev = NULL;
-    object->value.v_object = prop;
+    if (object->value.v_object) {
+        object->value.v_object->next = prop;
+        prop->prev = object->value.v_object;
+    } else {
+        prop->prev = NULL;
+        object->value.v_object = prop;
+    }
+    prop->next = NULL;
     return 0;
 }
 
